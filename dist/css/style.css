@@ -115,6 +115,17 @@ header {
 	padding: 15px 0;
 }
 
+header.fixed {
+	position: fixed;
+	z-index: 99999999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 7px 0;
+	background-color: white;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+}
+
 header .header-logo {
 	padding-bottom: 10px;
 	justify-content: space-between;
@@ -1215,6 +1226,31 @@ footer ul li a i:hover {
 	align-items: center;
 }
 
+.totop {
+	font-size: 18px;
+	position: fixed;
+	z-index: 9999;
+	right: 10px;
+	bottom: 10px;
+	display: flex;
+	display: none;
+	width: 62px;
+	height: 62px;
+	transition: all .2s linear;
+	color: white;
+	border-radius: 6px;
+	background-color: #007bffc4;
+}
+
+.totop:hover {
+	padding-bottom: 5px;
+	background-color: rgba(40, 121, 254, .75);
+}
+
+.totop.fix {
+	display: flex;
+}
+
 @media (min-width: 576px) {
 
 .row .col-sm-1 {
@@ -1284,6 +1320,14 @@ footer ul li a i:hover {
 
 .bar {
 	display: flex;
+}
+
+header.fixed .container {
+	display: inherit;
+}
+
+header.fixed .menu {
+	display: none;
 }
 
 header .header-logo .logo {
@@ -1385,6 +1429,14 @@ header .header-logo .logo {
 .row .col-md-12 {
 	width: 100%;
 	padding: 5px;
+}
+
+header.fixed .container {
+	max-width: 750px;
+}
+
+header.fixed .menu {
+	display: block;
 }
 
 .menu {
@@ -1496,6 +1548,29 @@ header .header-logo .logo {
 
 .bar {
 	display: none;
+}
+
+header.fixed .container {
+	display: flex;
+	flex-direction: row-reverse;
+	max-width: 950px;
+	padding: 0;
+	align-items: center;
+	justify-content: space-between;
+}
+
+header.fixed .header-logo {
+	padding-bottom: 0;
+}
+
+header.fixed .header-logo .logo {
+	display: none;
+}
+
+header.fixed .header-logo .search-menu {
+	position: absolute;
+	top: 20px;
+	right: 200px;
 }
 
 header .header-logo .logo {
@@ -1702,6 +1777,10 @@ header .header-logo .logo {
 
 .bar {
 	display: flex;
+}
+
+header.fixed .menu {
+	display: none;
 }
 
 header .header-logo .logo {

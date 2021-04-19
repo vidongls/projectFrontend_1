@@ -602,9 +602,19 @@ $(function () {
     let sl = +document.querySelector('.soluongTam').textContent;
     tongtien = dongia*sl
     document.querySelector('#tongtienTam').innerHTML = tongtien;
-    console.log(tongiten);
+    console.log(tongtien);
   });
-
+ //back to top=======
+ $(window).scroll(function () {
+  const position = $(window).scrollTop();
+  if (position > 300) { 
+    $("header").addClass("fixed");
+    $(".totop").addClass("fix");
+  } else {
+    $("header").removeClass("fixed");
+    $(".totop").removeClass("fix");
+  }
+});
   // $(".close-modal").click(function(e) {
   //   e.preventDefault();
   //   console.log("fdsfdsf")
@@ -644,7 +654,7 @@ function renderCartTam(products) {
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-12 col-lg-6">
+                <div class="col-sm-6 col-lg-6">
                     <div class="message-title">
                       <i class="fas fa-check"></i> Added to cart successfully!
                     </div>
@@ -658,7 +668,7 @@ function renderCartTam(products) {
                         <span class='tt-price'>€</span> <span id='dongiaTam' class="tt-price">${val.price}</span>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-sm-6 col-lg-6">
                     <div class="tt-addCart">
                       <a href="">
                         There are <span class="total-sp">1</span>
