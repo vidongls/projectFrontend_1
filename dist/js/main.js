@@ -469,7 +469,7 @@ $(function () {
         items: 3,
       },
       1000: {
-        items: 7,
+        items: 6,
       },
     },
   });
@@ -546,6 +546,13 @@ $(function () {
     e.preventDefault();
     const local = localStorage.getItem("cart");
     const carts = JSON.parse(local);
+    console.log(carts)
+    var sum = carts.reduce(function (accumulator, currentValue) {
+    return accumulator + Number(currentValue.price);
+    },0);
+    console.log($(".sumPrice").html())
+    $(".sumPrice").html('€'+sum)
+    console.log(sum)
     renderCart(carts);
   });
   $(".cart-content").on("click", ".itemClose", function (e) {
@@ -563,6 +570,27 @@ $(function () {
     localStorage.setItem("cart", JSON.stringify(carts));
 
     renderCart(carts);
+  });
+  //box-option
+  $(".options-boxs .it1 li ").click(function (e) {
+    e.preventDefault();
+    $(".options-boxs .it1 li ").removeClass("acitver");
+    $(this).addClass("acitver");
+  });
+  $(".options-boxs .option-3 li ").click(function (e) {
+    e.preventDefault();
+    $(".options-boxs .option-3 li ").removeClass("acitver");
+    $(this).addClass("acitver");
+  });
+  $(".options-boxs .option-2 li ").click(function (e) {
+    e.preventDefault();
+    $(".options-boxs .option-2 li ").removeClass("option-2-active");
+    $(this).addClass("option-2-active");
+  });
+  $(".right-hand ul li").click(function (e) {
+    e.preventDefault();
+    $(".right-hand ul li").removeClass("active");
+    $(this).addClass("active");
   });
   //Showtt
   let arrCartTam = [];
@@ -591,7 +619,6 @@ $(function () {
     const carts = JSON.parse(local);
     const item2 = carts.find((val) => val.id === id);
     nhet = [...nhet,item2]
-    
     // let index = arrCartTam.findIndex((val) => val.id === id);
     //  console.log(index)
     renderCartTam(nhet);
@@ -607,7 +634,7 @@ $(function () {
  //back to top=======
  $(window).scroll(function () {
   const position = $(window).scrollTop();
-  if (position > 300) { 
+  if (position > 100) { 
     $("header").addClass("fixed");
     $(".totop").addClass("fix");
   } else {
@@ -641,6 +668,8 @@ $(function () {
       $(".modal").fadeOut();
     }
   });
+  //tinh tong tien 
+  
 });
 function renderCartTam(products) {
   $(".modal .modal-wrapper").empty();
@@ -654,7 +683,7 @@ function renderCartTam(products) {
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-sm-6 col-lg-6">
+                <div class="modal__image col-sm-12 col-lg-6">
                     <div class="message-title">
                       <i class="fas fa-check"></i> Added to cart successfully!
                     </div>
@@ -668,7 +697,7 @@ function renderCartTam(products) {
                         <span class='tt-price'>€</span> <span id='dongiaTam' class="tt-price">${val.price}</span>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-6">
+                <div class="modal__button col-sm-12 col-lg-6">
                     <div class="tt-addCart">
                       <a href="">
                         There are <span class="total-sp">1</span>
@@ -686,11 +715,11 @@ function renderCartTam(products) {
                     </a>
                     <a class="btn-view">VIEW CART</a>
                     <div class="checkTems">
-                      <input id="checkboxTems" type="checkbox" value="1">
+                      <input id="checkboxTems" type="checkbox" value="value">
                       <label for="checkboxTems">
                         <span class="check"></span>
                         <span class="box"></span>                        
-                           I agree with the terms and conditions
+                        I agree with the terms and conditions
                       </label>
                     </div>
                     <a href="" class="checkOut">PROCEED TO CHECKOUT</a>
@@ -716,7 +745,7 @@ function renderCart(products) {
         X
      </div>
      <div class="tt-price">
-         <span>${val.price}</span>
+         <span class="tongGia">${val.price}</span>
      </div>
     </div>
     <div data-productsid=${val.id} class="itemClose">
@@ -827,7 +856,7 @@ function renderOwl(list, selector) {
         
                     </div>
                     <div class="right-hand">
-                        <ul>
+                        <ul class='flex d-column'>
                             <li class= "active"><a href=""><i class="far fa-eye"></i></a></li>
                             <li><a href=""><i class="far fa-heart"></i> </a></li>
                             <li><a href=""><i class="fas fa-compress-alt"></i></a></li>
@@ -841,6 +870,3 @@ function renderOwl(list, selector) {
       .trigger("refresh.owl.carousel");
   });
 }
-$(function () {
-
-});

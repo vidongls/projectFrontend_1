@@ -31,6 +31,10 @@
 	justify-content: space-around;
 }
 
+.d-column {
+	flex-direction: column;
+}
+
 .row {
 	display: flex;
 	margin: -5px;
@@ -38,14 +42,16 @@
 }
 
 body,
-html,
-a {
+html {
 	font-family: 'Hind', sans-serif;
+	scroll-behavior: smooth;
+}
+
+a {
 	font-size: 14px;
 	font-weight: 300;
 	line-height: 22px;
 	color: #777;
-	scroll-behavior: smooth;
 }
 
 .yellow,
@@ -117,7 +123,7 @@ header {
 
 header.fixed {
 	position: fixed;
-	z-index: 99999999;
+	z-index: 9999;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -162,6 +168,14 @@ header .option i {
 	flex: 2 1 auto;
 }
 
+.menu nav .me-menu > li {
+	margin-right: 10px;
+}
+
+.menu nav .me-menu > li:last-child {
+	margin-right: 0;
+}
+
 .menu nav .me-menu > li > a {
 	font-weight: 400;
 	padding: 15px 12px 15px;
@@ -174,45 +188,17 @@ header .option i {
 	color: #2879fe;
 }
 
-.menu nav .me-menu .home-menu:hover .dropdown-menu {
-	display: flex;
-	visibility: visible;
-	transform: translateY(0px) scaleY(1);
-	opacity: 1;
-}
-
 .menu nav .me-menu .home-menu .dropdown-menu {
 	margin-left: -200px;
-}
-
-.menu nav .me-menu .shop-menu:hover .dropdown-menu {
-	display: flex;
-	visibility: visible;
-	transform: translateY(0px) scaleY(1);
-	opacity: 1;
 }
 
 .menu nav .me-menu .shop-menu .dropdown-menu {
 	margin-left: -200px;
 }
 
-.menu nav .me-menu .pages-menu:hover .dropdown-menu {
-	display: flex;
-	visibility: visible;
-	transform: translateY(0px) scaleY(1);
-	opacity: 1;
-}
-
 .menu nav .me-menu .pages-menu .dropdown-menu {
 	margin-left: 0;
 	padding-right: 130px;
-}
-
-.menu nav .me-menu .blog-menu:hover .dropdown-menu {
-	display: flex;
-	visibility: visible;
-	transform: translateY(0px) scaleY(1);
-	opacity: 1;
 }
 
 .menu nav .me-menu .blog-menu .dropdown-menu {
@@ -221,24 +207,10 @@ header .option i {
 	padding: 33px 10px 10px 30px;
 }
 
-.menu nav .me-menu .portfo-menu:hover .dropdown-menu {
-	display: flex;
-	visibility: visible;
-	transform: translateY(0px) scaleY(1);
-	opacity: 1;
-}
-
 .menu nav .me-menu .portfo-menu .dropdown-menu {
 	max-width: 255px;
 	margin-left: -20px;
 	padding: 33px 10px 20px 30px;
-}
-
-.menu nav .me-menu .women-menu:hover .dropdown-menu {
-	display: flex;
-	visibility: visible;
-	transform: translateY(0px) scaleY(1);
-	opacity: 1;
 }
 
 .menu nav .me-menu .women-menu .dropdown-menu {
@@ -270,13 +242,6 @@ header .option i {
 
 .menu nav .me-menu .women-menu .dropdown-menu .img-women-menu .womentxt {
 	color: white;
-}
-
-.menu nav .me-menu .men-menu:hover .dropdown-menu {
-	display: flex;
-	visibility: visible;
-	transform: translateY(0px) scaleY(1);
-	opacity: 1;
 }
 
 .menu nav .me-menu .men-menu .dropdown-menu {
@@ -330,13 +295,6 @@ header .option i {
 
 .menu nav .me-menu .men-menu .dropdown-menu div:last-child:hover .txt-now {
 	border: none;
-}
-
-.menu nav .me-menu .theme-menu:hover .dropdown-menu {
-	display: flex;
-	visibility: visible;
-	transform: translateY(0px) scaleY(1);
-	opacity: 1;
 }
 
 .menu nav .me-menu .theme-menu .dropdown-menu {
@@ -529,20 +487,20 @@ header .option i {
 .women-products .owl-carousel .owl-item,
 .men-products .owl-carousel .owl-item {
 	z-index: 1;
-	margin-left: 20px;
 }
 
 .women-products .owl-carousel .item,
 .men-products .owl-carousel .item {
 	position: relative;
 	width: 100%;
+	padding: 0 10px;
 	transition: .2s linear;
 	text-align: center;
 }
 
 .women-products .owl-carousel .item:hover .item-description,
 .men-products .owl-carousel .item:hover .item-description {
-	margin-top: -70px;
+	margin-top: -75px;
 }
 
 .women-products .owl-carousel .item:hover .item-description .button-basket,
@@ -552,6 +510,7 @@ header .option i {
 
 .women-products .owl-carousel .item:hover .right-hand,
 .men-products .owl-carousel .item:hover .right-hand {
+	display: block;
 	visibility: visible;
 }
 
@@ -661,18 +620,18 @@ header .option i {
 .men-products .owl-carousel .item .item-description .options-boxs .option-item li a img {
 	width: 39px;
 	height: 39px;
+	border-radius: 6px;
 }
 
 .women-products .owl-carousel .item .item-description .options-boxs .option-item li:hover,
 .men-products .owl-carousel .item .item-description .options-boxs .option-item li:hover {
-	border: 2px solid #2879fe;
-	border-radius: 6px;
+	border-radius: 5px;
 }
 
 .women-products .owl-carousel .item .item-description .options-boxs .option-item .acitver,
 .men-products .owl-carousel .item .item-description .options-boxs .option-item .acitver {
 	border: 2px solid #2879fe;
-	border-radius: 6px;
+	border-radius: 10px;
 }
 
 .women-products .owl-carousel .item .item-description .options-boxs .option-2 li a,
@@ -715,22 +674,29 @@ header .option i {
 	top: 10px;
 	right: 10px;
 	display: none;
-	transition: .2s linearnp;
+	transition: all .2s linear;
 }
 
 .women-products .owl-carousel .item .right-hand ul li,
 .men-products .owl-carousel .item .right-hand ul li {
 	display: flex;
-	width: 42px;
-	height: 42px;
-	margin-top: 10px;
+	width: 37px;
+	height: 37px;
+	margin-top: 5px;
 	cursor: pointer;
+	text-align: center;
 	color: #191919;
 	border-radius: 50%;
 	background: rgba(255, 255, 255, .9);
 	align-items: center;
 	justify-content: center;
-	align-items: center;
+}
+
+.women-products .owl-carousel .item .right-hand ul li a,
+.men-products .owl-carousel .item .right-hand ul li a {
+	margin: 0;
+	margin-bottom: -4px;
+	padding: 0;
 }
 
 .women-products .owl-carousel .item .right-hand ul li:hover,
@@ -846,6 +812,7 @@ footer .input-email button {
 	padding-right: 20px;
 	padding-left: 20px;
 	cursor: pointer;
+	transition: all .4s ease;
 	color: #fff;
 	border-radius: 6px;
 	border-top-left-radius: 0;
@@ -1018,7 +985,7 @@ footer ul li a i:hover {
 }
 
 .modal .modal-wrapper {
-	width: 736px;
+	max-width: 736px;
 	height: 100vh;
 	margin: 30px auto;
 	transform: translate(0, 0);
@@ -1029,7 +996,6 @@ footer ul li a i:hover {
 	top: 100px;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 }
 
 .modal-content .modal-header {
@@ -1037,7 +1003,6 @@ footer ul li a i:hover {
 	display: flex;
 	height: 54px;
 	margin: 0;
-	padding: 22px 20px 0 20px;
 	align-items: flex-start;
 }
 
@@ -1060,20 +1025,9 @@ footer ul li a i:hover {
 	text-align: center;
 	border-radius: 12px;
 	background-color: white;
-	flex: 1 1 auto;
 }
 
-.modal-content .modal-body:before {
-	position: absolute;
-	left: 50%;
-	width: 1px;
-	height: 80%;
-	margin-left: 8px;
-	content: '';
-	background: #e9e9e9;
-}
-
-.modal-content .modal-body .message-title {
+.modal-content .modal-body .modal__image .message-title {
 	font-family: 'Hind', sans-serif;
 	font-size: 20px;
 	font-weight: 500;
@@ -1081,22 +1035,25 @@ footer ul li a i:hover {
 	color: #191919;
 }
 
-.modal-content .modal-body .message-title i {
+.modal-content .modal-body .modal__image .message-title i {
 	color: #2879fe;
 }
 
-.modal-content .modal-body .tt-sp {
+.modal-content .modal-body .modal__image .tt-sp {
+	display: flex;
+	flex-direction: column;
 	margin-top: 26px;
+	align-items: center;
+	justify-content: center;
 }
 
-.modal-content .modal-body .tt-sp img {
+.modal-content .modal-body .modal__image .tt-sp img {
 	width: 100%;
-	max-width: 154px;
 	height: auto;
 }
 
-.modal-content .modal-body .tt-sp h2,
-.modal-content .modal-body .tt-sp .tt-qty {
+.modal-content .modal-body .modal__image .tt-sp h2,
+.modal-content .modal-body .modal__image .tt-sp .tt-qty {
 	font-family: 'Hind', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
@@ -1104,11 +1061,11 @@ footer ul li a i:hover {
 	color: #191919;
 }
 
-.modal-content .modal-body .tt-sp .tt-qty {
+.modal-content .modal-body .modal__image .tt-sp .tt-qty {
 	font-weight: 550;
 }
 
-.modal-content .modal-body .totalPrice {
+.modal-content .modal-body .modal__image .totalPrice {
 	font-family: 'Hind', sans-serif;
 	font-size: 16px;
 	font-weight: 550;
@@ -1116,33 +1073,32 @@ footer ul li a i:hover {
 	color: #191919;
 }
 
-.modal-content .modal-body .tt-addCart > a {
+.modal-content .modal-body .modal__button .tt-addCart a {
 	display: inline-block;
 	cursor: default;
 	color: #777;
 }
 
-.modal-content .modal-body .tt-addCart > a .ttPricecart {
+.modal-content .modal-body .modal__button .tt-addCart a .ttPricecart {
 	font-family: 'Hind', sans-serif;
-	font-weight: 500;
-	margin-top: 11px;
+	font-weight: 300;
+	margin-top: 8px;
 	color: #191919;
 }
 
-.modal-content .modal-body .tt-addCart > a .ttPricecart .tt-gia {
-	font-size: 24px;
+.modal-content .modal-body .modal__button .tt-addCart a .ttPricecart .tt-gia {
+	font-size: 18px;
 	color: #2879fe;
 }
 
-.modal-content .modal-body .btn-continue,
-.modal-content .modal-body .btn-view {
+.modal-content .modal-body .modal__button .btn-continue,
+.modal-content .modal-body .modal__button .btn-view {
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 1;
 	position: relative;
 	display: inline-flex;
 	height: 40px;
-	margin-top: 25px;
 	padding: 0 60px;
 	cursor: pointer;
 	text-align: center;
@@ -1154,25 +1110,24 @@ footer ul li a i:hover {
 	align-items: center;
 }
 
-.modal-content .modal-body .btn-view {
+.modal-content .modal-body .modal__button .btn-view {
 	padding: 0 95px;
 }
 
-.modal-content .modal-body .checkTems {
+.modal-content .modal-body .modal__button .checkTems {
 	margin-top: 15px;
 }
 
-.modal-content .modal-body .checkTems input {
+.modal-content .modal-body .modal__button .checkTems #checkboxTems {
 	display: none;
 }
 
-.modal-content .modal-body .checkTems input:checked .check {
+.modal-content .modal-body .modal__button .checkTems input#checkboxTems:checked ~ label .check {
 	transform: scale(1);
-	text-align: left;
 	opacity: 1;
 }
 
-.modal-content .modal-body .checkTems label {
+.modal-content .modal-body .modal__button .checkTems label {
 	font-size: 14px;
 	margin-top: 10px;
 	padding-left: 25px;
@@ -1181,21 +1136,22 @@ footer ul li a i:hover {
 	color: #191919;
 }
 
-.modal-content .modal-body .checkTems label .check {
+.modal-content .modal-body .modal__button .checkTems label .check {
 	line-height: 1;
 	position: absolute;
 	z-index: 10;
 	display: block;
 	width: 17px;
 	height: 17px;
-	margin-left: 50px;
+	margin-top: 3px;
+	margin-left: 7px;
 	transform: scale(0);
 	opacity: 0;
 	border-radius: 2px;
 	background: #2879fe;
 }
 
-.modal-content .modal-body .checkTems label .box {
+.modal-content .modal-body .modal__button .checkTems label .box {
 	position: absolute;
 	z-index: 9;
 	display: block;
@@ -1208,16 +1164,18 @@ footer ul li a i:hover {
 	background: #f7f8fa;
 }
 
-.modal-content .modal-body .checkOut {
+.modal-content .modal-body .modal__button .checkOut {
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 1.0;
+	line-height: 1;
 	position: relative;
 	display: inline-flex;
 	width: 83%;
 	height: 40px;
 	margin-top: 20px;
 	padding: 6px 31px 4px;
+	-webkit-animation: background .6s ease infinite;
+	animation: background .6s ease infinite;
 	text-align: center;
 	color: #fff;
 	border-radius: 6px;
@@ -1326,10 +1284,6 @@ header.fixed .container {
 	display: inherit;
 }
 
-header.fixed .menu {
-	display: none;
-}
-
 header .header-logo .logo {
 	display: none;
 	flex: auto;
@@ -1365,6 +1319,34 @@ header .header-logo .logo {
 
 .products .owl-stage-outer {
 	height: 550px;
+}
+
+.modal-content {
+	width: 60%;
+}
+
+.modal-content .modal-body {
+	padding: 15px;
+}
+
+.modal-content .modal-body .modal__image {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content .modal-body .modal__image .tt-sp {
+	max-width: 110px;
+}
+
+.modal-content .modal-body .modal__button .btn-continue,
+.modal-content .modal-body .modal__button .btn-view {
+	margin-top: 10px;
+}
+
+.modal-content .modal-body .modal__button .btn-view {
+	padding: 0 92px;
 }
 
 }
@@ -1589,6 +1571,62 @@ header .header-logo .logo {
 	display: flex;
 }
 
+.menu nav .me-menu .home-menu:hover .dropdown-menu {
+	display: flex;
+	visibility: visible;
+	transform: translateY(0px) scaleY(1);
+	opacity: 1;
+}
+
+.menu nav .me-menu .shop-menu:hover .dropdown-menu {
+	display: flex;
+	visibility: visible;
+	transform: translateY(0px) scaleY(1);
+	opacity: 1;
+}
+
+.menu nav .me-menu .pages-menu:hover .dropdown-menu {
+	display: flex;
+	visibility: visible;
+	transform: translateY(0px) scaleY(1);
+	opacity: 1;
+}
+
+.menu nav .me-menu .blog-menu:hover .dropdown-menu {
+	display: flex;
+	visibility: visible;
+	transform: translateY(0px) scaleY(1);
+	opacity: 1;
+}
+
+.menu nav .me-menu .portfo-menu:hover .dropdown-menu {
+	display: flex;
+	visibility: visible;
+	transform: translateY(0px) scaleY(1);
+	opacity: 1;
+}
+
+.menu nav .me-menu .women-menu:hover .dropdown-menu {
+	display: flex;
+	visibility: visible;
+	transform: translateY(0px) scaleY(1);
+	opacity: 1;
+}
+
+.menu nav .me-menu .men-menu:hover .dropdown-menu {
+	display: flex;
+	visibility: visible;
+	transform: translateY(0px) scaleY(1);
+	opacity: 1;
+}
+
+.menu nav .me-menu .theme-menu:hover .dropdown-menu {
+	display: flex;
+	visibility: visible;
+	transform: translateY(0px) scaleY(1);
+	opacity: 1;
+}
+
 .banner {
 	height: 650px;
 	background-attachment: fixed;
@@ -1614,6 +1652,42 @@ header .header-logo .logo {
 
 .products .owl-stage-outer {
 	height: 480px;
+}
+
+.modal-content {
+	width: 100%;
+}
+
+.modal-content .modal-body {
+	padding: 40px;
+}
+
+.modal-content .modal-body:before {
+	position: absolute;
+	left: 50%;
+	width: 1px;
+	height: 80%;
+	margin-left: 8px;
+	content: '';
+	background: #e9e9e9;
+}
+
+.modal-content .modal-body .modal__image .tt-sp {
+	max-width: 154px;
+}
+
+.modal-content .modal-body .modal__button .tt-addCart a .ttPricecart {
+	font-weight: 500;
+	margin-top: 11px;
+}
+
+.modal-content .modal-body .modal__button .tt-addCart a .ttPricecart .tt-gia {
+	font-size: 24px;
+}
+
+.modal-content .modal-body .modal__button .btn-continue,
+.modal-content .modal-body .modal__button .btn-view {
+	margin-top: 25px;
 }
 
 }
@@ -1690,7 +1764,7 @@ header .header-logo .logo {
 
 .menu nav .me-menu {
 	position: fixed;
-	top: 90px;
+	top: 80px;
 	left: 0;
 	display: block;
 	width: 250px;
@@ -1779,10 +1853,6 @@ header .header-logo .logo {
 	display: flex;
 }
 
-header.fixed .menu {
-	display: none;
-}
-
 header .header-logo .logo {
 	display: none;
 	flex: auto;
@@ -1860,12 +1930,119 @@ footer .input-email button {
 	right: 10px;
 }
 
+.modal-content {
+	width: 80%;
+}
+
+.modal-content .modal-header {
+	height: 0;
+}
+
+.modal-content .modal-header .close-modal {
+	top: -39px;
+	right: -45px;
+}
+
+.modal-content .modal-body {
+	padding: 30px;
+}
+
+.modal-content .modal-body .row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.modal-content .modal-body .modal__image {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content .modal-body .modal__image .message-title {
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.modal-content .modal-body .modal__image .tt-sp {
+	max-width: 65px;
+	margin-top: 10px;
+}
+
+.modal-content .modal-body .modal__image .tt-sp h2,
+.modal-content .modal-body .modal__image .tt-sp .tt-qty {
+	margin-top: 3px;
+}
+
+.modal-content .modal-body .modal__image .totalPrice {
+	margin-top: 7px;
+}
+
+.modal-content .modal-body .modal__button .tt-addCart a .ttPricecart {
+	font-weight: 300;
+	margin-top: 2px;
+}
+
+.modal-content .modal-body .modal__button .tt-addCart a .ttPricecart .tt-gia {
+	font-size: 16px;
+}
+
+.modal-content .modal-body .modal__button .btn-continue,
+.modal-content .modal-body .modal__button .btn-view {
+	font-size: 12px;
+	height: 36px;
+	margin-top: 6px;
+}
+
+.modal-content .modal-body .modal__button .btn-view {
+	padding: 0 88px;
+}
+
+.modal-content .modal-body .modal__button .checkTems label .box {
+	margin-top: 3px;
+	margin-left: 6px;
+}
+
 }
 
 @media (max-width: 322px) {
 
 .banner {
 	height: 200px;
+}
+
+}
+
+@-webkit-keyframes background {
+
+0% {
+	background: #2879fe;
+}
+
+50% {
+	background-color: #2267d8;
+}
+
+100% {
+	background-color: #2879fe;
+}
+
+}
+
+@keyframes background {
+
+0% {
+	background: #2879fe;
+}
+
+50% {
+	background-color: #2267d8;
+}
+
+100% {
+	background-color: #2879fe;
 }
 
 }
